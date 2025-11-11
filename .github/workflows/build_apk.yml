@@ -29,6 +29,10 @@ jobs:
       # Esta ação 'usa' o Gradle sem precisar do 'gradlew' no repositório.
       uses: gradle/gradle-build-action@v2
       with:
+        # ESTA É A CORREÇÃO:
+        # Nós dizemos a ele para usar a versão 8.4 do Gradle,
+        # já que não temos um 'gradlew' (wrapper) no projeto.
+        gradle-version: '8.4'
         arguments: :app:assembleRelease
 
     - name: Upload APK
